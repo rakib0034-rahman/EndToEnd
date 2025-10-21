@@ -6,13 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static TestCom.BaseTest.driver;
 
 public class UserInterface extends BaseTest {
 
 
     @Test
-    public void test() {
+    public void test() throws IOException {
         BaseTest.app();
         LandingPage.setLoginButton();
         ProductPage.getBackPack();

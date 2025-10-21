@@ -5,7 +5,7 @@
         <parameter name="browser" value="chrome">
         </parameter>
         <classes>
-            <class name="TestFile.UserInterface"></class>
+            <class name="TestFile.UserInterface"> </class>
         </classes>
     </test>
 </suite>

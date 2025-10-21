@@ -1,38 +1,24 @@
 package Config;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class TestDataReader {
-    static String filePath = "/home/rakib-r/Desktop/New Folder/EndToEnd/App/src/main/java/Resources/testData.Properties";
+    String filePath = "/Users/alpine/Desktop/User/App/src/main/java/Resources/testData.Properties";
+    Properties properties;
 
-    static {
-        try {
-            readFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    static Properties properties = new Properties();
-
-    public static void readFile() throws IOException {
-        FileInputStream fileInputStream = new FileInputStream(new File(filePath));
+    public void readFile() throws IOException {
+        FileInputStream fileInputStream = new FileInputStream(filePath);
+        properties= new Properties();
         properties.load(fileInputStream);
-
     }
 
-    public static String getusername() {
-        String user = properties.getProperty("username");
-        return user;
-    }
 
-    public static String password() {
-        String pass = properties.getProperty("password");
-        return pass;
+    public String getProperties(String key) {
+        return properties.getProperty(key);
     }
 
 
 }
+
