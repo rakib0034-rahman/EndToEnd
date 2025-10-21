@@ -1,5 +1,6 @@
 package PageObj;
 
+import Config.TestDataReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,5 +26,6 @@ public class LandingPage {
         password.sendKeys("secret_sauce");
         loginButton.click();
         ProductPage productPage = new ProductPage(driver);
+
     }
 }
