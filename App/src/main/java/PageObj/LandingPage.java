@@ -34,6 +34,7 @@ public class LandingPage {
         username.sendKeys(user);
         password.sendKeys(pass);
         loginButton.click();
+        System.out.println("app starter");
         ProductPage productPage = new ProductPage(driver);
 
     }
