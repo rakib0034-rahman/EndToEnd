@@ -25,7 +25,7 @@ public class LandingPage {
     /*static String user= "standard_user";
     static String pass="secret_sauce";*/
 
-
+//this will start the login process
     public static void setLoginButton() throws IOException {
         TestDataReader reader= new TestDataReader();
         reader.readFile();
@@ -34,7 +34,6 @@ public class LandingPage {
         username.sendKeys(user);
         password.sendKeys(pass);
         loginButton.click();
-        System.out.println("app starter");
         ProductPage productPage = new ProductPage(driver);
 
     }
