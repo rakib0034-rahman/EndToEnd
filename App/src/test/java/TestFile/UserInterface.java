@@ -16,6 +16,7 @@ public class UserInterface extends BaseTest {
     @Test
     public void test() throws IOException {
         BaseTest.app();
+        System.out.println("App started");
         LandingPage.setLoginButton();
         ProductPage.getBackPack();
         ProductPage1.getFleeceJacket();
