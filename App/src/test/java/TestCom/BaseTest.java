@@ -39,6 +39,7 @@ public class BaseTest {
     public void tearDown(){
         driver.manage().deleteAllCookies();
         driver.quit();
+        // this will close all browser windows
     }
 
 }
