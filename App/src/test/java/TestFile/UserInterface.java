@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static TestCom.BaseTest.driver;
 
 
 import PageObj.*;
@@ -19,7 +18,6 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static TestCom.BaseTest.driver;
 
 /**
  * Test class for user interface flow of an e-commerce application

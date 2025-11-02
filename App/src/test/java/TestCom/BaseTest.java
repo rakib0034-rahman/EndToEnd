@@ -5,41 +5,51 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
+/**
+ * Base test class providing core test setup and teardown functionality
+ */
 public class BaseTest {
-    public static WebDriver driver;
+    protected static WebDriver driver;
+    private static final String BASE_URL = "https://www.saucedemo.com/";
+    private static final Duration IMPLICIT_WAIT = Duration.ofSeconds(10);
 
     @BeforeTest
     @Parameters({"browser"})
-
-    public WebDriver init( String browser) {
+    public WebDriver init(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.manage().deleteAllCookies();
+            setupDriver();
             return driver;
-
         }
-
-
         return null;
-
     }
 
-    public static void app() {
-        driver.get("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        LandingPage landingPage = new LandingPage(driver);
-    }
-    @AfterTest
-    public void tearDown(){
+    /**
+     * Sets up common driver configurations
+     */
+    private void setupDriver() {
+        driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.quit();
-        // this will close all browser windows
     }
 
+    /**
+     * Initializes the application with base URL and waits
+     */
+    public static void app() {
+        driver.get(BASE_URL);
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT);
+        new LandingPage(driver);
+    }
+
+    @AfterTest
+    public void tearDown() {
+        if (driver != null) {
+            driver.manage().deleteAllCookies();
+            driver.quit();
+        }
+    }
 }
